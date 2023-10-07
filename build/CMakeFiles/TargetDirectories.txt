@@ -1,0 +1,3 @@
+/home/ezaborshchikov/hse_mc/cpp/build/CMakeFiles/CPPcourse.dir
+/home/ezaborshchikov/hse_mc/cpp/build/CMakeFiles/edit_cache.dir
+/home/ezaborshchikov/hse_mc/cpp/build/CMakeFiles/rebuild_cache.dir

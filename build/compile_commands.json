@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/home/ezaborshchikov/hse_mc/cpp/build",
+  "command": "/usr/bin/g++  -I/home/ezaborshchikov/hse_mc/cpp/include -g -std=gnu++14 -o CMakeFiles/CPPcourse.dir/main.cpp.o -c /home/ezaborshchikov/hse_mc/cpp/main.cpp",
+  "file": "/home/ezaborshchikov/hse_mc/cpp/main.cpp"
+},
+{
+  "directory": "/home/ezaborshchikov/hse_mc/cpp/build",
+  "command": "/usr/bin/g++  -I/home/ezaborshchikov/hse_mc/cpp/include -g -std=gnu++14 -o CMakeFiles/CPPcourse.dir/src/matrix.cpp.o -c /home/ezaborshchikov/hse_mc/cpp/src/matrix.cpp",
+  "file": "/home/ezaborshchikov/hse_mc/cpp/src/matrix.cpp"
+}
+]
