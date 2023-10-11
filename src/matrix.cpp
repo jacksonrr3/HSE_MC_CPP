@@ -8,10 +8,10 @@ Matrix::Matrix()
 }
 
 Matrix::Matrix(int num_rows, int num_cols)
-    : m_rows(num_rows), m_cols(num_cols), m_data(num_rows * num_cols) {
+    : m_rows(num_rows), m_cols(num_cols), m_data(num_rows* num_cols) {
 }
 
-Matrix::Matrix(const Matrix &mat)
+Matrix::Matrix(const Matrix& mat)
     : m_rows(mat.m_rows), m_cols(mat.m_cols), m_data(mat.m_data) {
 }
 
@@ -42,7 +42,7 @@ Matrix Matrix::subtract(int val) const {
     return res;
 }
 
-Matrix &Matrix::operator=(const Matrix &mat) {
+Matrix& Matrix::operator=(const Matrix& mat) {
     if (this != &mat) {
         m_rows = mat.m_rows;
         m_cols = mat.m_cols;
