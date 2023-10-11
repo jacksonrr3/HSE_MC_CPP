@@ -3,10 +3,6 @@
 #include <iomanip>
 #include <iostream>
 
-Matrix::Matrix()
-    : m_rows(0), m_cols(0) {
-}
-
 Matrix::Matrix(int num_rows, int num_cols)
     : m_rows(num_rows), m_cols(num_cols), m_data(num_rows* num_cols) {
 }

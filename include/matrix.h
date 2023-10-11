@@ -6,7 +6,6 @@
 
 class Matrix {
 public:
-    Matrix();
     Matrix(int num_rows, int num_cols);
     Matrix(const Matrix& mat);
 
