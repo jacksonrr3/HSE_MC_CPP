@@ -6,7 +6,6 @@
 
 class Matrix {
 public:
-    Matrix();
     Matrix(int num_rows, int num_cols);
     Matrix(const Matrix& mat);
 
@@ -18,7 +17,6 @@ public:
     Matrix multiply(int val) const;
     Matrix subtract(int val) const;
     Matrix& operator=(const Matrix& mat);
-    Matrix(const Matrix& mat); 
 
 private:
     size_t m_rows;
