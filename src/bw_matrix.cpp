@@ -1,7 +1,7 @@
 #include "bw_matrix.h"
 
-BWMatrix::BWMatrix(int rows, int cols)
-    : Matrix(rows, cols, 1)
+BWMatrix::BWMatrix(int num_rows, int num_cols)
+    : Matrix(num_rows, num_cols, 1)
 {}
 
 BWMatrix::BWMatrix(const BWMatrix& mat)

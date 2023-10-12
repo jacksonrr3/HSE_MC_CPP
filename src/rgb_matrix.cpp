@@ -4,8 +4,8 @@ RGBMatrix::RGBMatrix(const RGBMatrix& mat)
     : Matrix(mat)
 {}
 
-RGBMatrix::RGBMatrix(int rows, int cols)
-    : Matrix(rows, cols, 3)
+RGBMatrix::RGBMatrix(int num_rows, int num_cols)
+    : Matrix(num_rows, num_cols, 3)
 {}
 
 RGBMatrix RGBMatrix::operator+(int val) const
@@ -51,9 +51,10 @@ BWMatrix RGBMatrix::toBW() const
         for (size_t c = 0; c < m_cols; ++c) {
             int gray = 0;
             for (size_t ch = 0; ch < m_channels; ++ch) {
-                gray += at(r, c, ch);
+                // gray += at(r, c, ch);
+                gray += m_data[r * m_cols * m_channels + c * m_channels + ch];
             }
-            res.at(r, c) = gray / m_channels;
+            res.at(r, c, 0) = gray / m_channels;
         }
     }
     return res;
@@ -65,9 +66,12 @@ cv::Mat RGBMatrix::toOpenCV() const
     for (size_t r = 0; r < m_rows; ++r) {
         for (size_t c = 0; c < m_cols; ++c) {
             cv::Vec3b val;
-            val[0] = at(r, c, 2);
-            val[1] = at(r, c, 1);
-            val[2] = at(r, c, 0);
+            // val[0] = at(r, c, 2);
+            // val[1] = at(r, c, 1);
+            // val[2] = at(r, c, 0);
+             val[0] = m_data[r * m_cols * m_channels + c * m_channels + 2];
+            val[1] = m_data[r * m_cols * m_channels + c * m_channels + 1];
+            val[2] = m_data[r * m_cols * m_channels + c * m_channels + 0];
             mat.at<cv::Vec3b>(r, c) = val;
         }
     }
