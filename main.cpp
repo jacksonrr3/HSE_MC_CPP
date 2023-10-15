@@ -4,6 +4,8 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
+#include <filesystem>
+namespace fs = std::filesystem;
 
 void GenMatrix(Matrix& mat, int min = 0, int max = 255) {
     for (size_t r = 0; r < mat.getRows(); ++r) {
@@ -16,10 +18,11 @@ void GenMatrix(Matrix& mat, int min = 0, int max = 255) {
 }
 
 int main() {
+    // auto path = fs::current_path();
     RGBMatrix rgb;
     BWMatrix bw;
-    bw.readImage("images/hse_bw.png");
-    rgb.readImage("images/hse_rgb.png");
+    bw.readImage("../../images/hse_bw.png");
+    rgb.readImage("../../images/hse_rgb.png");
     bw.display();
     rgb.display();
 

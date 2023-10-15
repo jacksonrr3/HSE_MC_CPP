@@ -31,7 +31,8 @@ Matrix::Matrix(size_t rows, size_t cols, size_t channels, int initValue)
 
 void Matrix::display() const
 {
-    cv::imshow("Display image", toOpenCV());
+    auto mat =  toOpenCV();
+    cv::imshow("Display image", mat);
     cv::waitKey(0);
 }
 
