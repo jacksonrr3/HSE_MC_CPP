@@ -122,12 +122,12 @@ std::ostream& operator<<(std::ostream& out, const BWMatrix& mat)
 }
 
 void BWMatrix::draw(const Shape& s) {
-    auto color = s.getColor();
-    auto rows = getRows();
-    auto cols = getCols();
+    // auto color = s.getColor();
+    // auto rows = getRows();
+    // auto cols = getCols();
     for (auto p : s.getPoints()) {
-        if ((0 <= p.y && p.y < rows) && (0 <= p.x && p.x < cols)) {
-            at(p.y, p.x) = color->getBWColor();
+        if ((0 <= p.y && p.y < getRows()) && (0 <= p.x && p.x < getCols())) {
+            at(p.y, p.x) = s.getColor()->getBWColor();
         }
     }
 }

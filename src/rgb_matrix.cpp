@@ -70,7 +70,7 @@ cv::Mat RGBMatrix::toOpenCV() const
     return mat;
 }
 
-bool RGBMatrix::readImage(const std::string& path) 
+bool RGBMatrix::readImage(const std::string& path)
 {
     cv::Mat rgbImage = cv::imread(path, cv::IMREAD_COLOR);
     if (rgbImage.empty())
@@ -123,7 +123,7 @@ RGBMatrix& RGBMatrix::operator=(const RGBMatrix& mat)
 
 std::ostream& operator<<(std::ostream& out, const RGBMatrix& mat)
 {
-    static const std::vector<std::string> names = {"r", "g", "b"};
+    static const std::vector<std::string> names = { "r", "g", "b" };
     for (size_t r = 0; r < mat.m_rows; ++r) {
         for (size_t c = 0; c < mat.m_rows; ++c) {
             out << (c > 0 ? " " : "") << std::setw(2);
@@ -139,4 +139,16 @@ std::ostream& operator<<(std::ostream& out, const RGBMatrix& mat)
     return out;
 }
 
-void RGBMatrix::draw(const Shape& s) {}
+void RGBMatrix::draw(const Shape& s) {
+    // auto color = s.getColor();
+    // auto rows = getRows();
+    // auto cols = getCols();
+    for (auto p : s.getPoints()) {
+        if ((0 <= p.y && p.y < getRows()) && (0 <= p.x && p.x < getCols())) {
+            auto rgb_colors = s.getColor()->getRGBColor();
+            for (int ch = 0; ch < rgb_colors.size(); ++ch) {
+                at(p.y, p.x, ch) = rgb_colors[ch];
+            }
+        }
+    }
+}
