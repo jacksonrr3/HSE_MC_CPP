@@ -29,7 +29,7 @@ public:
     RGBMatrix& operator=(const RGBMatrix& mat);
     friend std::ostream& operator<<(std::ostream& out, const RGBMatrix& mat);
 
-     void draw(const Shape& s) override;
+    void draw(const Shape& s) override;
 };
 
 #endif // RGB_MATRIX_H

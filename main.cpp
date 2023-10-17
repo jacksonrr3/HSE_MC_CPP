@@ -4,6 +4,7 @@
 #include "bw_color.h"
 #include "rectangle.h"
 #include "circle.h"
+#include "triangle.h"
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
@@ -32,7 +33,7 @@ int main() {
     Rectangle background({ 0, 700 }, 2000, 1000, bwColor);
     Rectangle background2({ 800, 1300 }, 400, 200, bwColor);
     bwColor.changeColor(stipeColor);
-    // Triangle stipe({ 1000, 350 }, { 1200, 1500 }, { 800, 1500 }, bwColor);
+    Triangle stipe({ 1000, 350 }, { 1200, 1500 }, { 800, 1500 }, bwColor);
     bwColor.changeColor(capColor);
     Rectangle background3({ 800, 350 }, 400, 350, bwColor);
     bwColor.changeColor(bottomColor);
@@ -42,7 +43,7 @@ int main() {
     bw.draw(background);
     bw.draw(bottom);
     bw.draw(background2);
-    // bw.draw(stipe);
+    bw.draw(stipe);
     bw.draw(background3);
     bw.display();
 
@@ -54,15 +55,15 @@ int main() {
     Rectangle grass({ 0, 1500 }, 2000, 2000, rgbColor);
     rgbColor.changeColor(255, 255, 0);
     Circle sun({ 50, 50 }, 300, rgbColor);
-    // Triangle ray1({ 360, 50 }, { 550, 30 }, { 550, 70 }, rgbColor);
-    // Triangle ray2({ 270, 270 }, { 420, 360 }, { 390, 400 }, rgbColor);
-    // Triangle ray3({ 50, 360 }, { 30, 550 }, { 70, 550 }, rgbColor);
+    Triangle ray1({ 360, 50 }, { 550, 30 }, { 550, 70 }, rgbColor);
+    Triangle ray2({ 270, 270 }, { 420, 360 }, { 390, 400 }, rgbColor);
+    Triangle ray3({ 50, 360 }, { 30, 550 }, { 70, 550 }, rgbColor);
     rgbColor.changeColor(102, 51, 0);
     Rectangle wall({ 600, 900 }, 1000, 800, rgbColor);
     rgbColor.changeColor(0, 0, 0);
     Rectangle flue({ 1300, 550 }, 100, 200, rgbColor);
     rgbColor.changeColor(51, 0, 0);
-    // Triangle roof({ 560, 900 }, { 1100, 500 }, { 1640, 900 }, rgbColor);
+    Triangle roof({ 560, 900 }, { 1100, 500 }, { 1640, 900 }, rgbColor);
     rgbColor.changeColor(204, 102, 0);
     Rectangle door({ 1400, 1350 }, 150, 300, rgbColor);
     rgbColor.changeColor(0, 0, 0);
@@ -74,31 +75,17 @@ int main() {
     rgb.draw(sky);
     rgb.draw(grass);
     rgb.draw(sun);
-    // rgb.draw(ray1);
-    // rgb.draw(ray2);
-    // rgb.draw(ray3);
+    rgb.draw(ray1);
+    rgb.draw(ray2);
+    rgb.draw(ray3);
     rgb.draw(wall);
     rgb.draw(flue);
-    // rgb.draw(roof);
+    rgb.draw(roof);
     rgb.draw(door);
     rgb.draw(knob);
     rgb.draw(window1);
     rgb.draw(window2);
     rgb.display();
-
-
-    // auto path = fs::current_path();
-    // RGBMatrix rgb;
-    // BWMatrix bw;
-    // bw.readImage("../../images/hse_bw.png");
-    // rgb.readImage("../../images/hse_rgb.png");
-    // bw.display();
-    // rgb.display();
-
-    // BWMatrix inverted = bw.invert();
-    // inverted.display();
-    // BWMatrix newBW = rgb.toBW();
-    // newBW.display();
 
     return 0;
 }
