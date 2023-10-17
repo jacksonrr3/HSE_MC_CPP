@@ -87,5 +87,32 @@ int main() {
     rgb.draw(window2);
     rgb.display();
 
+    RGBMatrix rgb2(2000, 2000, 0);
+    RGBColor rgbColor2(102, 205, 255);
+    Rectangle sky2({ 0, 0 }, 2000, 1500, rgbColor2);
+    rgbColor2.changeColor(0, 153, 0);
+    Rectangle grass2({ 0, 1500 }, 2000, 2000, rgbColor2);
+    rgbColor2.changeColor(200, 0, 0);
+    Rectangle body({ 200, 1300 }, 1600, 300, rgbColor2);
+    Triangle rear({ 1800, 1300 }, { 1800, 1600 }, { 1900, 1300 }, rgbColor2);
+    Rectangle cab({ 800, 1100 }, 1100, 200, rgbColor2);
+    Triangle front({ 800, 1100 }, { 600, 1300 }, { 800, 1300 }, rgbColor2);
+    Triangle spoiler({ 1900, 1100 }, { 1600, 1100 }, { 1950, 1050 }, rgbColor2);
+    rgbColor2.changeColor(0, 0, 0);
+    Circle w1({ 500, 1600 }, 150, rgbColor2);
+    Circle w2({ 1400, 1600 }, 150, rgbColor2);
+
+    rgb2.draw(sky2);
+    rgb2.draw(grass2);
+    rgb2.draw(body);
+    rgb2.draw(cab);
+    rgb2.draw(rear);
+    rgb2.draw(front);
+    rgb2.draw(spoiler);
+    rgb2.draw(w1);
+    rgb2.draw(w2);
+
+    rgb2.display();
+
     return 0;
 }
