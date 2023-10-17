@@ -10,14 +10,16 @@ struct Point
 {
     int x;
     int y;
+    Point(int x, int y) :x(x), y(y) {}
 };
 
 class Shape
 {
-    virtual ~Shape() { delete m_color; }
+public:
     std::vector<Point> getPoints() const { return m_points; }
     const Color* getColor() const { return m_color; }
 protected:
+    virtual ~Shape() { delete m_color; }
     Shape(const BWColor& color) { m_color = new BWColor(color); }
     Shape(const RGBColor& color) { m_color = new RGBColor(color); }
 

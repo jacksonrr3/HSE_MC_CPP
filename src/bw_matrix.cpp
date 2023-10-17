@@ -33,7 +33,7 @@ void BWMatrix::print() const
 
 void BWMatrix::fromOpenCV(const cv::Mat& mat)
 {
-if (mat.channels() != 1 || mat.depth() != CV_8U)
+    if (mat.channels() != 1 || mat.depth() != CV_8U)
         return;
     m_rows = mat.rows;
     m_cols = mat.cols;
@@ -56,7 +56,7 @@ cv::Mat BWMatrix::toOpenCV() const
     return mat;
 }
 
-bool BWMatrix::readImage(const std::string& path) 
+bool BWMatrix::readImage(const std::string& path)
 {
     cv::Mat bwImage = cv::imread(path, cv::IMREAD_GRAYSCALE);
     if (bwImage.empty())
@@ -119,4 +119,15 @@ std::ostream& operator<<(std::ostream& out, const BWMatrix& mat)
         out << std::endl;
     }
     return out;
+}
+
+void BWMatrix::draw(const Shape& s) {
+    auto color = s.getColor();
+    auto rows = getRows();
+    auto cols = getCols();
+    for (auto p : s.getPoints()) {
+        if ((0 <= p.y && p.y < rows) && (0 <= p.x && p.x < cols)) {
+            at(p.y, p.x) = color->getBWColor();
+        }
+    }
 }

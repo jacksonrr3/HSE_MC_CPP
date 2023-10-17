@@ -138,3 +138,5 @@ std::ostream& operator<<(std::ostream& out, const RGBMatrix& mat)
     }
     return out;
 }
+
+void RGBMatrix::draw(const Shape& s) {}

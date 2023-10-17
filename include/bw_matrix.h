@@ -27,6 +27,8 @@ public:
     BWMatrix operator*(int val) const;
     BWMatrix& operator=(const BWMatrix& mat);
     friend std::ostream& operator<<(std::ostream& out, const BWMatrix& mat);
+
+    void draw(const Shape& s) override;
 };
 
 #endif // BW_MATRIX_H

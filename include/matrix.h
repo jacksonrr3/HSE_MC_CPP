@@ -8,6 +8,8 @@
 #include <opencv2/imgcodecs.hpp>
 #include <opencv2/highgui.hpp>
 
+#include "shape.h"
+
 class Matrix {
 public:
     Matrix();
@@ -32,6 +34,8 @@ public:
     void display() const;
 
     Matrix& operator=(const Matrix& mat);
+
+    virtual void draw(const Shape& s) = 0;
 
 protected:
     void add(Matrix& res, int val) const;
