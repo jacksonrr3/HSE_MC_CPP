@@ -140,9 +140,6 @@ std::ostream& operator<<(std::ostream& out, const RGBMatrix& mat)
 }
 
 void RGBMatrix::draw(const Shape& s) {
-    // auto color = s.getColor();
-    // auto rows = getRows();
-    // auto cols = getCols();
     for (auto p : s.getPoints()) {
         if ((0 <= p.y && p.y < getRows()) && (0 <= p.x && p.x < getCols())) {
             auto rgb_colors = s.getColor()->getRGBColor();

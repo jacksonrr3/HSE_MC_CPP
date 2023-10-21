@@ -4,23 +4,13 @@
 #include "shape.h"
 
 class Rectangle : public Shape {
+
 public:
-    Rectangle(const Point start, const int w, const int h, const BWColor& color) : Shape(color) {
-        fillPoints(start, w, h);
-    }
-    
-    Rectangle(const Point start, const int w, const int h, const RGBColor& color) : Shape(color) {
-        fillPoints(start, w, h);
-    }
+    Rectangle(const Point start, const int w, const int h, const BWColor& color);
+    Rectangle(const Point start, const int w, const int h, const RGBColor& color);
 
 private:
-    void fillPoints(const Point start, const int w, const int h) {
-        for (int y = start.y; y < start.y + h; y++) {
-            for (int x = start.x; x < start.x + w; x++) {
-                m_points.push_back(Point(x, y));
-            }
-        }
-    }
+    void fillPoints(const Point start, const int w, const int h);
 };
 
 
