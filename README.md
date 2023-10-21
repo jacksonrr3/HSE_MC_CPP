@@ -22,13 +22,13 @@ $ make -j4
 
 ### Project structure
 - `include` - contains classes definitions.
-- `images` - contains sample HSE logo images.
+- `images` - contains sample images.
 - `src` - contains classes implementations.
 - main.cpp - contains main function
 
 ### Run the programs
 Program runs without any  attributes.
-Program draws tree pictures: bw mashroom, bw house, color house and color car. Press any button to draw next picture.
+Program draws pictures: bw mashroom, bw house, color house and color car.
 Drawn pictures can be stretched.
 
 Example of execution program with command line:
