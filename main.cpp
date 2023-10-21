@@ -6,26 +6,22 @@
 #include "circle.h"
 #include "triangle.h"
 #include <iostream>
-#include <cstdlib>
-#include <ctime>
-#include <filesystem>
-namespace fs = std::filesystem;
+#include <chrono>
 
-void GenMatrix(Matrix& mat, int min = 0, int max = 255) {
-    for (size_t r = 0; r < mat.getRows(); ++r) {
-        for (size_t c = 0; c < mat.getCols(); ++c) {
-            for (size_t ch = 0; ch < mat.getChannels(); ++ch) {
-                mat.at(r, c, ch) = min + std::rand() % (max - min + 1);
-            }
-        }
-    }
-}
+using Time = std::chrono::high_resolution_clock;
+using ns = std::chrono::nanoseconds;
 
 int main() {
     int bgColor = 255;
     int capColor = 179;
     int stipeColor = 128;
     int bottomColor = 52;
+    Time::time_point start;
+    Time::time_point end;
+    double duration;
+
+    std::cout << "Prepare and draw mushroom." << std::endl;
+    start = Time::now();
     BWMatrix bw(2000, 2000, 255);
     BWColor bwColor(capColor);
     Circle cap({ 1000, 1000 }, 700, bwColor);
@@ -45,9 +41,14 @@ int main() {
     bw.draw(background2);
     bw.draw(stipe);
     bw.draw(background3);
+    end = Time::now();
+
     bw.display();
+    duration = std::chrono::duration_cast<ns>(end - start).count() * 10e-6;
+    std::cout << "Execution time:" << duration << "ms\n" << std::endl;
 
-
+    std::cout << "Prepare and draw color house." << std::endl;
+    start = Time::now();
     RGBMatrix rgb(2000, 2000, 0);
     RGBColor rgbColor(102, 205, 255);
     Rectangle sky({ 0, 0 }, 2000, 1500, rgbColor);
@@ -85,8 +86,59 @@ int main() {
     rgb.draw(knob);
     rgb.draw(window1);
     rgb.draw(window2);
-    rgb.display();
+    end = Time::now();
 
+    rgb.display();
+    duration = std::chrono::duration_cast<ns>(end - start).count() * 10e-6;
+    std::cout << "Execution time:" << duration << "ms\n" << std::endl;
+
+    std::cout << "Prepare and draw bw house." << std::endl;
+    start = Time::now();
+    RGBMatrix rgb_h(2000, 2000, 0);
+    BWColor bwColor_h(102);
+    Rectangle sky_h({ 0, 0 }, 2000, 1500, bwColor_h);
+    bwColor_h.changeColor(0);
+    Rectangle grass_h({ 0, 1500 }, 2000, 2000, bwColor_h);
+    bwColor_h.changeColor(255);
+    Circle sun_h({ 50, 50 }, 300, bwColor_h);
+    Triangle ray1_h({ 360, 50 }, { 550, 30 }, { 550, 70 }, bwColor_h);
+    Triangle ray2_h({ 270, 270 }, { 420, 360 }, { 390, 400 }, bwColor_h);
+    Triangle ray3_h({ 50, 360 }, { 30, 550 }, { 70, 550 }, bwColor_h);
+    bwColor_h.changeColor(51);
+    Rectangle wall_h({ 600, 900 }, 1000, 800, bwColor_h);
+    bwColor_h.changeColor(0);
+    Rectangle flue_h({ 1300, 550 }, 100, 200, bwColor_h);
+    bwColor_h.changeColor(51);
+    Triangle roof_h({ 560, 900 }, { 1100, 500 }, { 1640, 900 }, bwColor_h);
+    bwColor_h.changeColor(204);
+    Rectangle door_h({ 1400, 1350 }, 150, 300, bwColor_h);
+    bwColor_h.changeColor(0);
+    Circle knob_h({ 1535, 1500 }, 6, bwColor_h);
+    bwColor_h.changeColor(102);
+    Rectangle window1_h({ 700, 950 }, 300, 350, bwColor_h);
+    Rectangle window2_h({ 1200, 950 }, 300, 350, bwColor_h);
+
+    rgb_h.draw(sky_h);
+    rgb_h.draw(grass_h);
+    rgb_h.draw(sun_h);
+    rgb_h.draw(ray1_h);
+    rgb_h.draw(ray2_h);
+    rgb_h.draw(ray3_h);
+    rgb_h.draw(wall_h);
+    rgb_h.draw(flue_h);
+    rgb_h.draw(roof_h);
+    rgb_h.draw(door_h);
+    rgb_h.draw(knob_h);
+    rgb_h.draw(window1_h);
+    rgb_h.draw(window2_h);
+    end = Time::now();
+
+    rgb_h.display();
+    duration = std::chrono::duration_cast<ns>(end - start).count() * 10e-6;
+    std::cout << "Execution time:" << duration << "ms\n" << std::endl;
+
+    std::cout << "Prepare and draw car." << std::endl;
+    start = Time::now();
     RGBMatrix rgb2(2000, 2000, 0);
     RGBColor rgbColor2(102, 205, 255);
     Rectangle sky2({ 0, 0 }, 2000, 1500, rgbColor2);
@@ -111,8 +163,11 @@ int main() {
     rgb2.draw(spoiler);
     rgb2.draw(w1);
     rgb2.draw(w2);
+    end = Time::now();
 
     rgb2.display();
+    duration = std::chrono::duration_cast<ns>(end - start).count() * 10e-6;
+    std::cout << "Execution time:" << duration << "ms\n" << std::endl;
 
     return 0;
 }
