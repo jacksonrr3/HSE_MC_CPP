@@ -17,4 +17,4 @@ private:
     unsigned char m_color;
 };
 
-#endif
+#endif   // BW_COLOR_H

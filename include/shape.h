@@ -27,4 +27,4 @@ protected:
     Color* m_color;
 };
 
-#endif
+#endif   // SHAPE_H

@@ -14,4 +14,4 @@ private:
     void fillPoints(const Point centre, const int r);
 };
 
-#endif
+#endif    // CIRCLE_H

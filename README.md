@@ -9,7 +9,7 @@ Implement Matrix::draw(Shape&) method, which fill matrix by shape's pixels.
 if pixel is out of the matrix bound, this pixel is skipping while drawing shape at matrix.
 
 ### Requirements
-- compiler with C++17 features
+- compiler with C++14 features
 - cmake
 - OpenCV
 

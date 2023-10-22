@@ -22,4 +22,4 @@ private:
     unsigned char m_b;
 };
 
-#endif
+#endif  // RGB_COLOR_H

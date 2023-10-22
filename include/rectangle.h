@@ -13,5 +13,4 @@ private:
     void fillPoints(const Point start, const int w, const int h);
 };
 
-
 #endif

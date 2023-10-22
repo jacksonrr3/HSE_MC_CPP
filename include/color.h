@@ -10,4 +10,4 @@ public:
     virtual unsigned char getBWColor() const = 0;
 };
 
-#endif
+#endif  // COLOR_H

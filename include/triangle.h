@@ -18,4 +18,4 @@ private:
     void fillPoints(const Point v_1, const Point v_2, const Point v_3);
 };
 
-#endif
+#endif   // TRIANGLE_H
