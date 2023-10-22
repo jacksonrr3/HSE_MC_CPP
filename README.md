@@ -4,16 +4,18 @@ Final cource project
 
 ### Description
 
-Implement basic class Shape, and subclasses: Rectangle, Triangle, Circle.
-Implement Matrix::draw(Shape&) method, which fill matrix by shape's pixels.
-if pixel is out of the matrix bound, this pixel is skipping while drawing shape at matrix.
+Implemented basic class Shape, and subclasses: Rectangle, Triangle, Circle.
+Implemented void draw(const Shape& s) method, which fill matrix by shape's pixels.
+If shape's pixel is out of the matrix bound, this pixel is skipping while drawing shape at the matrix.
 
 ### Requirements
+
 - compiler with C++14 features
 - cmake
 - OpenCV
 
 ### Building
+
 ```bash
 $ mkdir build && cd build
 $ cmake ..
@@ -21,21 +23,23 @@ $ make -j4
 ```
 
 ### Project structure
+
 - `include` - contains classes definitions.
 - `images` - contains sample images.
 - `src` - contains classes implementations.
 - main.cpp - contains main function
 
 ### Run the programs
-Program runs without any  attributes.
+
+Program runs without any attributes.
 Program draws pictures: bw mashroom, bw house, color house and color car.
 Drawn pictures can be stretched.
+Program writes execution time to terminal.
 
 Example of execution program with command line:
 ```bash
 ./build/bin/runner
 ```
-Program writes perfomance time to terminal.
 
 ### Examples
 
